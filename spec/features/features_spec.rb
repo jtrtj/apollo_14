@@ -19,6 +19,7 @@ describe 'user' do
       astro_2 = Astronaut.create(name: 'gfd', age: 30, job: 'hgfd')
 
       visit astronauts_path
+      save_and_open_page
 
       expect(page).to have_content('Average Age: 25')
     end

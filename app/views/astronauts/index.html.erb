@@ -1,9 +1,14 @@
 <h1>Astronauts</h1>
 
-<%= @astronauts.each do |astro| %>
+<% @astronauts.each do |astro| %>
   <section id="astronaut-<%=astro.id%>">
     <p><%= astro.name %></p>
     <p><%= astro.age %></p>
     <p><%= astro.job %></p>
   </section>
-  <%end%>
+<%end%>
+
+
+  <div>
+   <p>Average Age: <%= @average_age %></p>
+  </div>
