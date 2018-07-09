@@ -23,11 +23,17 @@ describe 'user' do
 
       expect(page).to have_content('Average Age: 25')
     end
+
+    it 'should see a list of the space missions for each astronaut in aplha order' do
+      
+    end
   end
 end
 =begin
 As a visitor,
 When I visit '/astronauts'
-I see the average age of all astronauts.
-(e.g. "Average Age: 34")
+I see a list of the space missions' in alphabetical order for each astronaut.
+(e.g "Apollo 13"
+     "Capricorn 4"
+     "Gemini 7")
 =end
