@@ -14,14 +14,19 @@ describe 'user' do
       expect(page).to have_content(astro_2.age)
       expect(page).to have_content(astro_2.job)
     end
+    it 'sees average age of astronauts' do
+      astro_1 = Astronaut.create(name: 'sgs', age: 20, job: 'sadg')
+      astro_2 = Astronaut.create(name: 'gfd', age: 30, job: 'hgfd')
+
+      visit astronauts_path
+
+      expect(page).to have_content('Average Age: 25')
+    end
   end
 end
 =begin
 As a visitor,
 When I visit '/astronauts'
-I see a list of astronauts with the following info:
- - Name
- - Age
- - Job
- (e.g. "Name: Neil Armstrong" Age: 37 Job: Commander")
+I see the average age of all astronauts.
+(e.g. "Average Age: 34")
 =end
