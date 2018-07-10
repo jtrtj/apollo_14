@@ -15,6 +15,11 @@ ActiveRecord::Schema.define(version: 20180706181538) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "astronaut_space_missions", force: :cascade do |t|
+    t.integer "astronaut_id"
+    t.integer "space_mission_id"
+  end
+
   create_table "astronauts", force: :cascade do |t|
     t.string "name"
     t.integer "age"

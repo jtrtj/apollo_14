@@ -5,6 +5,13 @@
     <p><%= astro.name %></p>
     <p><%= astro.age %></p>
     <p><%= astro.job %></p>
+    <p>space missions:</p>
+    <ul>
+      <% astro.alphabetized_space_missions.each do |mission| %>
+        <li><%= mission.title%></li>
+      <% end %>
+    </ul>
+    <p>Time in Space: <%= astro.time_in_space %>
   </section>
 <%end%>
 

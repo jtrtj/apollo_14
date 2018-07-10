@@ -19,21 +19,29 @@ describe 'user' do
       astro_2 = Astronaut.create(name: 'gfd', age: 30, job: 'hgfd')
 
       visit astronauts_path
-      save_and_open_page
 
       expect(page).to have_content('Average Age: 25')
     end
 
     it 'should see a list of the space missions for each astronaut in aplha order' do
-      
+      astro_1 = Astronaut.create(name: 'sgs', age: 20, job: 'sadg')
+      m1 = astro_1.space_missions.create(title: 'wohoo', trip_length: 56)
+      m2 = astro_1.space_missions.create(title: 'wohoo too', trip_length: 45678)
+
+      visit astronauts_path
+
+      expect(page).to have_content(m1.title)
+      expect(page).to have_content(m2.title)
+    end
+
+    it 'should see total time in space for each astronaut' do
+      astro_1 = Astronaut.create(name: 'sgs', age: 20, job: 'sadg')
+      m1 = astro_1.space_missions.create(title: 'wohoo', trip_length: 5)
+      m2 = astro_1.space_missions.create(title: 'wohoo too', trip_length: 4)
+
+      visit astronauts_path
+
+      expect(page).to have_content('Time in Space: 9')
     end
   end
 end
-=begin
-As a visitor,
-When I visit '/astronauts'
-I see a list of the space missions' in alphabetical order for each astronaut.
-(e.g "Apollo 13"
-     "Capricorn 4"
-     "Gemini 7")
-=end
